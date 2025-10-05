@@ -6,6 +6,8 @@ def pode_ser_campeao(N, M, G, jogos_informados):
     # Inicializa a contagem de pontos e jogos jogados
     pontos = [0] * N
     jogos_jogados = [[0] * N for _ in range(N)]
+    total_jogos_por_time = (N - 1) * M
+    jogos_restantes_por_time = [total_jogos_por_time] * N
 
     # Processa os jogos informados
     for jogo in jogos_informados:
@@ -17,14 +19,20 @@ def pode_ser_campeao(N, M, G, jogos_informados):
         jogos_jogados[int(time_a)][int(time_b)] += 1
         jogos_jogados[int(time_b)][int(time_a)] += 1
 
+        # Atualiza a contagem de jogos restantes para cada time
+        jogos_restantes_por_time[int(time_a)] -= 1
+        jogos_restantes_por_time[int(time_b)] -= 1
+
         # Atualiza a contagem de pontos conforme o resultado
         if resultado == "<":
             pontos[int(time_b)] += 2
         elif resultado == ">":
             pontos[int(time_a)] += 2
-        else:
+        elif resultado == "=":
             pontos[int(time_a)] += 1
             pontos[int(time_b)] += 1
+        else:
+            raise ValueError("Resultado inválido")
 
     return True
 
@@ -39,7 +47,7 @@ def main():
     idx = 0
 
     # Lista para armazenar os resultados de cada caso de teste
-    resultado = []
+    saida = []
 
     # Loop principal para processar cada caso de teste
     while idx < len(linhas):
@@ -67,17 +75,16 @@ def main():
         jogos_concluidos = []
         for i in range(G):
             jogos_concluidos.append(linhas[idx + i].strip())
-
-        # Avança o índice após ler os jogos concluídos
-        idx += G
+            # Avança o índice para a próxima linha
+            idx += 1
 
         # Chama a função que resolve o problema e armazena o resultado
         if pode_ser_campeao(N, M, G, jogos_concluidos):
-            resultado.append(f"Y")
+            saida.append(f"Y")
         else:
-            resultado.append(f"N")
+            saida.append(f"N")
     
-    print("\n".join(resultado))
+    print("\n".join(saida))
 
 if __name__ == "__main__":
     main()
