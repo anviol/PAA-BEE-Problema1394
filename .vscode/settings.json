@@ -1,0 +1,9 @@
+{
+    "runOnSave.commands": [
+    {
+      "match": ".*\\.py$",
+      "cmd": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-Content '${workspaceFolder}\\input.txt' | '${workspaceFolder}\\.venv\\Scripts\\python.exe' '${workspaceFolder}\\problema1394.py'\"",
+      "runIn": "terminal"
+    }
+  ]
+}

@@ -26,3 +26,6 @@ O campeão é o time com mais pontos no final.
 -  I C J
 -  I e J sáo os times que se enfrentaram (inteiro);
 -  C caracteres <, > e =, onde < o time I ganhou, > o time J ganhou e = os times empataram
+
+#### Situação de parada
+- Linha contendo 3 zeros
