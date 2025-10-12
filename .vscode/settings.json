@@ -5,5 +5,36 @@
       "cmd": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-Content '${workspaceFolder}\\input.txt' | '${workspaceFolder}\\.venv\\Scripts\\python.exe' '${workspaceFolder}\\problema1394.py'\"",
       "runIn": "terminal"
     }
-  ]
+  ],
+  "editor.semanticHighlighting.enabled": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.cursorBlinking": "expand",
+  "workbench.colorTheme": "Dracula",
+
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      { "scope": "variable.parameter", "settings": { "foreground": "#FFA657" } },
+      { "scope": "entity.name.function", "settings": { "foreground": "#7EE787", "fontStyle": "bold" } },
+      { "scope": "support.function.builtin.python", "settings": { "foreground": "#A5D6FF" } },
+      { "scope": "storage.type", "settings": { "foreground": "#C678DD" } },
+      { "scope": "keyword.control", "settings": { "foreground": "#FF7B72" } },
+      { "scope": "string", "settings": { "foreground": "#A5D6FF" } },
+      { "scope": "constant.numeric", "settings": { "foreground": "#F2CC60" } },
+      { "scope": "comment", "settings": { "foreground": "#7A818E", "fontStyle": "italic" } }
+    ]
+  },
+
+  "editor.semanticTokenColorCustomizations": {
+    "rules": {
+      "parameter": "#FFA657",
+      "function": { "foreground": "#7EE787", "bold": true },
+      "variable.readonly": "#E2B93D",
+      "class": "#D2A8FF",
+      "property": "#79C0FF",
+      "enumMember": "#FFAB70",
+      "type": "#C678DD"
+    }
+  }
 }
